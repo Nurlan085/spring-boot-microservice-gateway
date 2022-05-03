@@ -1,0 +1,36 @@
+server:
+  port: 7777
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_gateway?currentSchema=sc_gateway&ssl=false
+    username: nurlandev
+    password: 12345
+    driver-class-name: org.postgresql.Driver
+
+  main:
+    allow-circular-references: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  retrofit:
+    timeout: 30
+
+  security:
+    user:
+      name: nurlan
+      password: nurlan123
+
+authentication:
+  jwt:
+    public-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgL+54RF0wlVZzSqKChBQzZ2QvvwUc9sml1152BvaF29PeZt4zZZAWScsZD9z5aSMCEdw2kESyOEZb3B8MJjALqXXaiod6Nn3Wt4SczpoM42p3+9LpcaAoDvTn0lI9ZYoXuAAxaAgQlg4ZDqLDvGVc0Pz54PJTwxT01wOROqEn9mToCvq8y4sRAOjoykC80IROLQPntWhafDqCCLUyZ68jZpqPCTy+O8r7q+2vYcz0EPc/2fYXok8aNrCZ2IQZpEyKpKwQOlqIhkqaThp+bxoOvJEDPq//TVmOZeItdVGLwe83mVTTGxS+Dwkf83ap2D12dh5glhJnMFQKeitlh7siQIDAQAB
+    private-key: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCAv7nhEXTCVVnNKooKEFDNnZC+/BRz2yaXXXnYG9oXb095m3jNlkBZJyxkP3PlpIwIR3DaQRLI4RlvcHwwmMAupddqKh3o2fda3hJzOmgzjanf70ulxoCgO9OfSUj1lihe4ADFoCBCWDhkOosO8ZVzQ/Png8lPDFPTXA5E6oSf2ZOgK+rzLixEA6OjKQLzQhE4tA+e1aFp8OoIItTJnryNmmo8JPL47yvur7a9hzPQQ9z/Z9heiTxo2sJnYhBmkTIqkrBA6WoiGSppOGn5vGg68kQM+r/9NWY5l4i11UYvB7zeZVNMbFL4PCR/zdqnYPXZ2HmCWEmcwVAp6K2WHuyJAgMBAAECggEAM3lz/ZIXFmM9ZhOt4NwpEiv+5PyvyKpDwZyzzD1GcrwkEECiib+atoo860+bLKMfAWherEP8GKg2nSFh5aQMohnYCDASiTgr9v52be9aHdJzqn5nxj2Yy3df4n1QWC/SsCvq4xhkDWJsGVZ2pmDcGZt/dn5wC9Sn5wcVBWSl5apsTrRHhpZAul6PMTvNyGt84HaQAyIbM+Tjkh79H+osgPLrQsV8h0O4Ez90B/Pcc4XL127btIrTI4ZqntCXK76nQxkV7DJMohbP8hlcg1hhvdmcvyj2QRiOTjWzQcDLKqW1fUCpeIYKfnSOd7ac707aDXRqoxGOuHUyeIVeYBahAQKBgQC+gcFhuQru06TYadhD2X8O/dXylJ+59Y6V6LCHvYzX/Ygn0ZnN/3BH0/P3rKhZibUwkN+rXqAdBV33QDlI38+rnfQNmZBL04ja+D23nWcc1coo2AIeQSuAS8ITDEYOfq+BKKDhWRma5flDpkD6MxxqfmlqiLeX2/gmr5j9bu5ucQKBgQCtAr23uZo6j3dXSstfaJ1hboTFCFBg0hRyB4sB7LbZfeyBUe9L2lN/gCI0RoyfTvUSa88YvfTPmfOAKgAYor1ahukTHcLnCuaAyq1KdPwK3sNyhp0/IfQ2zLZvPSX2pN2nhmtVWeVcSOfehZgCLoyir34QkBtuJI9zKvB6YgkbmQKBgGCMZjNeknnjbUH4spAAZHJ2lr1wMVsPZgn3ea/xkrXMWfrEMUzDTmY4twYozNFEBz3rzk+Nj1vl4m9ybxXNx/PUA2H5F7Y2KL/A25Z5AU8N0nzMrJYktSU6P8tjhwXFkrDEpHRQsbddIez1Dy0+RgJ6unYxf8pIwwToLYMTe2chAoGBAJM5ZuomJek5VovQ2Plqk6pqms70QTny63URmCfeIMc5Uf3GFIUO18kC55hmhJm4XfH8DfJ3CxFyZ3SjyQstyUZ00Xfz9nwXmYj1b7uRiz1QzS7zAHLN2Pyc/Y3xkhGtv/Uj/MhXxEbgv3drZaxNol16SyObDcyPjgap/pOWQzvZAoGAEen/3F9vMbp1h0smPPrDtZCQBcAqyENrkyiM++5975cf5Dta3vjVY739BTV+ru+kx7CU59kUBpYdBOaJnArzI6I816+PHHJ6ZmVyMUekR9OarYyzuWwykIy8iAsEXhME7hVW9Ve/Q57lIRECa99x719zfCCYkVeYIwv92mUIAos=
+    expiration-in-ms: 86400000
+
+service:
+  url:
+      product: http://localhost:8088/
+      transaction: http://localhost:4444/
